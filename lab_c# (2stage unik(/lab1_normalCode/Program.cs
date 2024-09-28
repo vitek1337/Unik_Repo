@@ -13,9 +13,8 @@ namespace lab1_normalCode
     {
         static void Main(string[] args)
         {
-            Menu menu = new Menu();
-
-            menu.choose();
+            Form1 form = new Form1();
+            form.ShowDialog();
         }
     }
 
@@ -50,38 +49,41 @@ namespace lab1_normalCode
                         (checkVar as Icheck).check(list);
                         solution1.SquareProblem(list);
                         break;
+
                     case 3:
-                        Console.WriteLine("Введите число, которое необходимо преобразовать в слово (от 0 до 1000)");
+                        Console.WriteLine("Введите число, которое необходимо преобразовать в слово (от 0 до 1000) \n");
                         (checkVar as Icheck).check(ref numb);
                         Console.WriteLine($"число {numb} соответствует слову {solution1.NumberToWords(numb)}");
                         break;
                 }
             }
         }
+        
+
     }
 
     class Solve
     {
-        public void Square(List<double> list) {
+        public double Square(List<double> list) {
             double a = (2 + list[0]) * (1 + list[1] / (list[0] * list[0] + 3)) / (list[1] * list[1] + 1 / (list[2] * list[2] + 4));
             double b = (1 + Math.Tan(list[0] / 2) * Math.Tan(list[0] / 2));
             double p = a + b + list[2];
-            Console.WriteLine($"Площадь треугольника с текущими параметрами = {Math.Sqrt(p * (p - a) * (p - b) * (p - list[2]))} \n");
+            return Math.Sqrt(p * (p - a) * (p - b) * (p - list[2]));
         }
 
-        public void SquareProblem(List<double> list)
+        public string SquareProblem(List<double> list)
         {
             double disk = list[1] * list[1] - 4 * list[0] * list[2];
 
             if (disk > 0)
             {
-                Console.WriteLine("x1 = " + (-list[1] + Math.Sqrt(disk)) / (2 * list[0]));
-                Console.WriteLine("x2 = " + (-list[1] - Math.Sqrt(disk)) / (2 * list[0]));
+                return ("x1 = " + (-list[1] + Math.Sqrt(disk)) / (2 * list[0]) + "\n" +
+                    "x2 = " + (-list[1] - Math.Sqrt(disk)) / (2 * list[0]));
             }
 
-            else if (disk == 0) Console.WriteLine("x12 = " + (-list[1] - Math.Sqrt(disk)) / (2 * list[0]));
+            else if (disk == 0) return ("x12 = " + (-list[1] - Math.Sqrt(disk)) / (2 * list[0]));
 
-            else Console.WriteLine("Данное квадратное уравнение не имеет решений");
+            else return ("Данное квадратное уравнение не имеет решений");
         }
 
         public string NumberToWords(int number)
@@ -114,14 +116,21 @@ namespace lab1_normalCode
         }
     }
 
-    interface Icheck
+    public interface Icheck
     {
         void check(ref int choice);
         void check(List<double> list, bool triangle = false);
+        bool check(string value);
     }
 
-    class checkType: Icheck
+    public class checkType: Icheck
     {
+        bool Icheck.check(string value)
+        {
+            if (double.TryParse(value, out double choice)) return true;
+            else return false;
+        }
+
         void Icheck.check(ref int choice)
         {
             int i = 0;
