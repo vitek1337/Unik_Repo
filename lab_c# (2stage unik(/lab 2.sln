@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_c# (2stage unik(", "lab_c# (2stage unik(\lab_c# (2stage unik(.csproj", "{302A275C-8974-475D-B9E6-6B2C3B81EDD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "laba1 peredelannaya dlya form", "lab_c# (2stage unik(\laba1 peredelannaya dlya form.csproj", "{302A275C-8974-475D-B9E6-6B2C3B81EDD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab1_normalCode", "lab1_normalCode\lab1_normalCode.csproj", "{C4471F37-47CD-412D-AB03-C8DC07C35E9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "laba forms", "lab1_normalCode\laba forms.csproj", "{C4471F37-47CD-412D-AB03-C8DC07C35E9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
